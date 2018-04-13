@@ -1,7 +1,7 @@
 # js-plotter
 Use jquery UI to control plotly.js figures. The goal is to create a framework for easily deployable widgets (I've had a lot of trouble) with .
 
-# check it out:
+# Check it out:
 Open sliders_demo/sliders.html
 The resizing with window is a little choppy, probably because the density plot is a graphics intensive.
 
