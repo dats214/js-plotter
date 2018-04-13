@@ -1,15 +1,12 @@
 radialFig = new Plotter("radialFig");
 radialFig.layout.xaxis = {title: 'x'};
 radialFig.layout.yaxis = {title: 'y'};
-// radialFig.layout.autosize = false;
-// radialFig.layout.width = 60;
-// radialFig.layout.height = 500;
 radialFig.params = [1, 1];
 radialFig.aspect = 1;
 radialFig.xs = range(-1, 1, 0.05);
 radialFig.ys = range(-1, 1, 0.05);
-radialFig.layout.paper_bgcolor ='rgba(1,0,0,0.2)';
-radialFig.layout.plot_bgcolor= 'rgba(0,0,1,0.2)';
+// radialFig.layout.paper_bgcolor ='rgba(1,0,0,0.2)';
+// radialFig.layout.plot_bgcolor= 'rgba(0,0,1,0.2)';
 radialFig.traceFunc = function() {
 return [{
   x: radialFig.xs,
