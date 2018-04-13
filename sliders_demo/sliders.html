@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Slider demo</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="../vendors/tufte-css-gh-pages/Tufte.css"/>
+  <link rel="stylesheet" href="../resources/plot_styles.css"/>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <script src="../resources/myLibrary.js"></script>
+  <script src="plots/sliderFunctions.js"></script>
+  <script>
+	var resizeTimer;
+	function resizeAllPlots() {
+		spfFig.resizePlot();
+		radialFig.resizePlot();
+		marginFig.resizePlot();
+	};
+	window.onresize = function() {
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout(resizeAllPlots, 10);
+	}
+  </script>
+</head>
+
+<body>
+  <article>
+    <h1 id="tufte-css">Large title</h1>
+    <p class="subtitle">Section 1</p>
+    <section>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet elementum massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean non consectetur arcu. Fusce auctor enim nulla, nec porttitor nulla commodo at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<label for="sn-first" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-first" class="margin-toggle"/><span class="sidenote">Here is a sidenote.</span> Curabitur non neque congue quam ullamcorper tempus. Vestibulum consequat mi at justo eleifend finibus. Fusce gravida nisi nec ligula eleifend, vel imperdiet orci egestas. Quisque nec tortor non mi eleifend dignissim. Nullam ut nulla consequat, varius ante vel, ultricies dolor. Nam ullamcorper ac libero in ullamcorper. Praesent a ante fermentum, gravida nulla non, commodo libero. Suspendisse in auctor libero. Duis egestas sollicitudin massa, vel tincidunt ipsum.</p>
+
+      <figure>
+        <label for="mn-blue-links" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-blue-links" class="margin-toggle"/><span class="marginnote">Here is a margin note.
+        </span>
+        <div id="spfFig"></div>
+        <div id="spfTemp"></div>
+
+        <script src="plots/spfFig.js"></script>
+      </figure>
+
+      <p>Phasellus in sem vestibulum, mollis felis ac, dignissim enim. Aenean id condimentum justo. Curabitur vel faucibus nisl. Ut quis accumsan nisi. Etiam ac velit tincidunt, vestibulum nisl vitae, dignissim tortor. In pharetra tellus non auctor tincidunt. Mauris ut facilisis velit, quis suscipit ligula. Donec in purus a lorem feugiat gravida at sit amet urna.</p>
+    </section>
+
+    <p class="subtitle">Section 2</p>
+
+    <section>
+      <p>Phasellus in sem vestibulum, mollis felis ac, dignissim enim. Aenean id condimentum justo. Curabitur vel faucibus nisl. Ut quis accumsan nisi. Etiam ac velit tincidunt, vestibulum nisl vitae, dignissim tortor. In pharetra tellus non auctor tincidunt. Mauris ut facilisis velit, quis suscipit ligula. Donec in purus a lorem feugiat gravida at sit amet urna.</p>
+      <figure>
+        <label for="mn-blue-links" class="margin-toggle">&#8853;</label><input type="checkbox" id="mn-blue-links" class="margin-toggle"/><span class="marginnote">I can even put a tiny plot in here and link it to the sliders:
+          <div id="marginFig"></div>
+          <!-- defer execution of the code if it uses sliders that come later -->
+          <script src="plots/marginFig.js" defer></script>
+        </span>
+
+        <div id="radialFig"></div>
+        <div id="radialDecay"></div>
+        <div id="radialPeriod"></div>
+
+        <script src="plots/radialFig.js"></script>
+      </figure>
+
+      <p>Integer eleifend tempor neque in semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque in efficitur felis. Mauris hendrerit, tortor finibus consequat tempor, dui felis facilisis massa, commodo pellentesque metus nisi sit amet libero. Donec tempus condimentum ornare. Fusce tincidunt lorem nec hendrerit blandit. Aliquam lacinia justo at diam vulputate dictum vel in sem. Vivamus et faucibus dolor. Duis dui nunc, rhoncus quis augue in, cursus volutpat ipsum. Nullam vestibulum nibh eros, vitae venenatis turpis maximus non. Sed porttitor ex eget arcu accumsan congue. Sed ultrices volutpat auctor. Cras et sapien sit amet dolor posuere varius.</p>
+
+    </section>
+  </article>
+  <!-- insert sliders at the end because they reference plot objects -->
+  <script src="plots/sliders.js" defer></script>
+</body>
+</html>
